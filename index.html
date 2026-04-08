@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- link to a favicon here -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <title>Meeting Minutes</title>
   </head>
   <body>
@@ -11,8 +11,6 @@
       <h1>Meeting Notes</h1>
     </header>
     <main>
-      <!-- think of this as the main filter bar in notion -->
-      <br />
       <nav class="nav-bar">
         <h2>All Meetings</h2>
       </nav>
@@ -20,31 +18,151 @@
         <div class="note-group">
           <h3><b>Name:</b> Meeting 1</h3>
           <span><b>Date:</b> April 7, 2026</span>
-          <br />
           <span><b>Attendees:</b> Stephen Curry, Bob, Jim, Matt</span>
-          <br />
           <div class="disc-topics">
             <span><b>Discussion Topics:</b></span>
+            <br />
+            <img
+              src="demo-img.png"
+              alt="Meeting Overview Image Example"
+              width="600px"
+              height="200px"
+            />
             <ul>
               <li>Task 1</li>
               <li>Task 2</li>
+              <li>
+                Difference between <i>software engineering</i> <br />and
+                <i>programming</i>
+              </li>
             </ul>
           </div>
-          <p>
-            <b>Description:</b> Let's circle back on the issue another time, for
-            now everybody get back to their tasks!
-          </p>
-          <div class="to-do">
+          <div class="questions">
+            <span><b>Questions, comments, concerns:</b></span>
+            <p>How do we do this in task 2 specifically?</p>
+          </div>
+          <section>
+            <h3>Meeting Recordings</h3>
+            <p>
+              <label for="meeting-video">Meeting Screen Recording:</label>
+              <br />
+              <video
+                id="meeting-video"
+                src="demo-video.mp4"
+                controls
+                width="600px"
+                height="300px"
+              >
+                Your browser may not support the video HTML tag.
+              </video>
+            </p>
+            <p>
+              <label for="meeting-audio">Meeting Audio Recording:</label>
+              <br />
+              <audio id="meeting-audio" src="demo-audio.mp3" controls>
+                Your browser may not support the audio HTML tag.
+              </audio>
+            </p>
+          </section>
+          <details>
+            <summary>Meeting Summary</summary>
+            <p>
+              Going over the Discussion Topics. Clarifying task 2 issue. Next
+              up, <em>everybody</em> has tasks to do! <br />Refer to the
+              website:
+              <a href="https://cse135.site/" target="_blank" noreferrer noopener
+                >CSE Reference Site</a
+              >
+            </p>
             <span><b>To-do:</b></span>
+
             <ol>
               <li>Finish current tasks <strong>ASAP!</strong></li>
               <li>Task 4</li>
             </ol>
-          </div>
+          </details>
+          <hr />
         </div>
-        <hr />
       </section>
+      <section class="about-me-form">
+        <h2>General Info Form</h2>
+        <form action="" method="post">
+          <fieldset>
+            <h3>What is your name?</h3>
+            <input type="text" name="name" id="name" />
+            <h3>When do you graduate?</h3>
+            <input type="date" name="grad-date" id="grad-date" />
+          </fieldset>
+          <fieldset>
+            <h3>Why are you taking this course?</h3>
+            <label for="ge-requirement">GE Requirement</label>
+            <input
+              type="checkbox"
+              name="course-reason"
+              id="ge-requirement"
+              value="GE Requirement"
+            />
+            <br />
+            <label for="major-requirement">Major Requirement</label>
+            <input
+              type="checkbox"
+              name="course-reason"
+              id="major-requirement"
+              value="Major Requirement"
+            />
+            <br />
+            <label for="interest">Interest</label>
+            <input
+              type="checkbox"
+              name="course-reason"
+              id="interest"
+              value="Interest"
+            />
+          </fieldset>
+          <fieldset>
+            <h3>What year are you?</h3>
+            <select name="class-year" id="class-year">
+              <option value="">Please select a year</option>
+              <option value="1">1st year</option>
+              <option value="2">2nd year</option>
+              <option value="3">3rd year</option>
+              <option value="4">4th year</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <h3>What's your favorite food?</h3>
+            <input list="fav-food" name="food" id="food" />
+            <datalist id="fav-food">
+              <option value="burgers"></option>
+              <option value="pizzas"></option>
+              <option value="tacos"></option>
+            </datalist>
+          </fieldset>
+          <fieldset>
+            <h3>Are you excited for this course?</h3>
+            <label for="excited-yes">Yes</label>
+            <input type="radio" name="excited" id="excited-yes" value="yes" />
+            <br />
+            <label for="excited-no">No</label>
+            <input type="radio" name="excited" id="excited-no" value="no" />
+
+            <h3>Why?</h3>
+            <textarea name="excited-reason" id="excited-reason"></textarea>
+          </fieldset>
+          <button>Submit Form</button>
+        </form>
+      </section>
+      <br />
+      <hr />
     </main>
-    <footer></footer>
+    <footer>
+      <p>2026 Meeting Notes</p>
+      <p>
+        Contact me at
+        <a href="fakemcfakerson@meetingnotes.com"
+          >fakemcfakerson@meetingnotes.com</a
+        >
+      </p>
+    </footer>
   </body>
 </html>
