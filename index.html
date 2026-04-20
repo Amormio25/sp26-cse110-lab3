@@ -20,6 +20,12 @@
         text-decoration: underline;
       }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -106,36 +112,42 @@
         <h2>General Info Form</h2>
         <form method="post">
           <fieldset>
-            <h3>What is your name?</h3>
-            <input type="text" name="name" id="name" />
-            <h3>When do you graduate?</h3>
-            <input type="date" name="grad-date" id="grad-date" />
+            <div>
+              <h3>What is your name?</h3>
+              <input type="text" name="name" id="name" />
+            </div>
+            <div>
+              <h3>When do you graduate?</h3>
+              <input type="date" name="grad-date" id="grad-date" />
+            </div>
           </fieldset>
           <fieldset>
             <h3>Why are you taking this course?</h3>
-            <label for="ge-requirement">GE Requirement</label>
-            <input
-              type="checkbox"
-              name="course-reason"
-              id="ge-requirement"
-              value="GE Requirement"
-            />
-            <br />
-            <label for="major-requirement">Major Requirement</label>
-            <input
-              type="checkbox"
-              name="course-reason"
-              id="major-requirement"
-              value="Major Requirement"
-            />
-            <br />
-            <label for="interest">Interest</label>
-            <input
-              type="checkbox"
-              name="course-reason"
-              id="interest"
-              value="Interest"
-            />
+            <div>
+              <label for="ge-requirement">GE Requirement</label>
+              <input
+                type="checkbox"
+                name="course-reason"
+                id="ge-requirement"
+                value="GE Requirement"
+              />
+              <br />
+              <label for="major-requirement">Major Requirement</label>
+              <input
+                type="checkbox"
+                name="course-reason"
+                id="major-requirement"
+                value="Major Requirement"
+              />
+              <br />
+              <label for="interest">Interest</label>
+              <input
+                type="checkbox"
+                name="course-reason"
+                id="interest"
+                value="Interest"
+              />
+            </div>
           </fieldset>
           <fieldset>
             <h3>What year are you?</h3>
@@ -157,15 +169,19 @@
             </datalist>
           </fieldset>
           <fieldset>
-            <h3>Are you excited for this course?</h3>
-            <label for="excited-yes">Yes</label>
-            <input type="radio" name="excited" id="excited-yes" value="yes" />
-            <br />
-            <label for="excited-no">No</label>
-            <input type="radio" name="excited" id="excited-no" value="no" />
+            <div>
+              <h3>Are you excited for this course?</h3>
+              <label for="excited-yes">Yes</label>
+              <input type="radio" name="excited" id="excited-yes" value="yes" />
+              <br />
+              <label for="excited-no">No</label>
+              <input type="radio" name="excited" id="excited-no" value="no" />
+            </div>
 
-            <h3>Why?</h3>
-            <textarea name="excited-reason" id="excited-reason"></textarea>
+            <div>
+              <h3>Why?</h3>
+              <textarea name="excited-reason" id="excited-reason"></textarea>
+            </div>
           </fieldset>
           <button>Submit Form</button>
         </form>
@@ -181,6 +197,8 @@
           >fakemcfakerson@meetingnotes.com</a
         >
       </p>
+      <p class="hidden-demo">Will be hidden</p>
     </footer>
+    <a href="#" class="back-to-top">↑</a>
   </body>
 </html>
