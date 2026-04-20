@@ -13,34 +13,54 @@
 }
 
 body {
-  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  background-color: var(--bg-color, white);
   color: var(--text-dark);
   font-size: 1rem;
   line-height: 1.6em;
   padding: 2vh 3vw;
   margin: 0px;
+  font-family: "Inter", sans-serif;
+}
+
+/* helpful button to send you back to the top */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.back-to-top:hover {
+  background-color: #3a7a7a;
+}
+
+/************************** MAIN SECTION **************************/
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   max-width: 1200px;
   min-width: 300px;
-}
-
-.note-group {
-  padding: 20px 25px 20px 25px;
-  margin-top: 30px;
-  margin-right: auto;
-  margin-bottom: 30px;
-  margin-left: auto;
-  border: 2px solid var(--border-dark);
-  background-color: rgba(250, 248, 240, 0.95); /* RGBA */
-  border-radius: 12px;
-}
-
-#meeting-video {
-  border-style: solid;
-  border-color: var(--border-dark);
-  border-width: 3px;
-  border-radius: 8px;
-  width: 600px;
-  max-width: 90%;
+  height: 100%;
 }
 
 h1,
@@ -52,7 +72,42 @@ h2 {
 }
 
 h3 {
-  color: hsla(20, 10%, 10%, 0.9); /* HSLA */
+  color: hsla(20, 10%, 10%, 0.9);
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav-bar > h2 {
+  color: color(display-p3 0.2 0.5 0.5);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.note-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.note-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 20px 25px 20px 25px;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+  border: 2px solid var(--border-dark);
+  background-color: rgba(250, 248, 240, 0.95);
+  border-radius: 12px;
 }
 
 .note-group ul li {
@@ -60,12 +115,6 @@ h3 {
   line-height: 1.8rem;
   padding-top: 5px;
   padding-bottom: 5px;
-}
-
-.nav-bar > h2 {
-  color: color(display-p3 0.2 0.5 0.5); /* Wider-gamut */
-  text-align: center;
-  padding: 10px 0;
 }
 
 h3 ~ span {
@@ -93,7 +142,36 @@ div.questions {
   padding: 12px;
   border-left: 4px solid;
   border-left-color: var(--primary-color);
-  background-color: var(--accent-bg);
+  background-color: color-mix(in srgb, var(--primary-color) 30%, white 70%);
+}
+
+div.questions b {
+  color: black;
+}
+
+#meeting-video {
+  border-style: solid;
+  border-color: var(--border-dark);
+  border-width: 3px;
+  border-radius: 8px;
+  width: 600px;
+  max-width: 90%;
+  height: auto;
+}
+
+details {
+  width: fit-content;
+  max-width: 100%;
+}
+
+details ol {
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+details p {
+  margin: 5px 0;
 }
 
 button:hover {
@@ -104,34 +182,6 @@ button:hover {
 
 button:active {
   transform: scale(0.98);
-}
-
-fieldset:has(h3) {
-  border: 2px solid var(--border-dark);
-  border-radius: 10px;
-  margin: 15px 0;
-  padding: 15px;
-}
-
-.about-me-form {
-  background-color: var(--bg-color);
-  padding: 20px;
-  border-radius: 15px;
-
-  h2 {
-    color: var(--primary-color);
-    text-align: center;
-    text-decoration: none;
-  }
-
-  button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    display: block;
-  }
 }
 
 .hidden-demo {
@@ -145,4 +195,164 @@ footer {
   padding: 20px;
   background-color: var(--accent-bg);
   border-radius: 8px;
+}
+/************************** FORM SECTION **************************/
+
+/* doesn't style the actual form */
+.about-me-form {
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 15px;
+
+  & h2 {
+    color: var(--primary-color);
+    text-align: center;
+    text-decoration: none;
+  }
+
+  & button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+  }
+}
+
+.about-me-form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+fieldset:has(h3) {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  border: 2px solid var(--border-dark);
+  border-radius: 10px;
+  margin: 7px 0;
+  padding: 15px;
+}
+
+/************************** MEDIA QUERY/RESPONSIVENESS SECTION **************************/
+@media (max-width: 768px) {
+  body {
+    padding: 2vh 2vw;
+  }
+
+  .note-table {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .nav-bar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  video,
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* fix video container */
+  #meeting-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  details {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  details ol {
+    padding-left: 20px;
+    word-wrap: break-word;
+  }
+
+  /* make form full width */
+  .about-me-form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .about-me-form form {
+    gap: 1rem;
+  }
+
+  fieldset {
+    width: 100%;
+  }
+
+  /* prevent text overflow */
+  p,
+  li,
+  span,
+  div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  div.questions {
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    padding: 1vh 1.5vw;
+    font-size: 0.9rem;
+  }
+
+  .note-group {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .back-to-top {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .about-me-form {
+    padding: 10px;
+  }
+
+  fieldset {
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .note-group {
+    overflow-x: auto;
+  }
 }
